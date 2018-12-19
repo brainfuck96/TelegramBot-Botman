@@ -22,6 +22,11 @@ $botman->hears(
 );
 
 $botman->hears(
+    '/news',
+    'App\Http\Controllers\Bot\NewsController@show'
+);
+
+$botman->hears(
     '/task_show',
     'App\Http\Controllers\Bot\TaskController@show'
 );

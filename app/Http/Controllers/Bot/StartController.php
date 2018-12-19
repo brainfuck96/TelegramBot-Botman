@@ -12,6 +12,7 @@ class StartController extends Controller
         $bot->reply('Список доступных команд:');
         $bot->reply('/car - Пробить автомобиль по номеру, база МВС с 2013 года');
         $bot->reply('/alimetn - Проверка человека в базе неплательщиков алиментов');
+        $bot->reply('/news - Вывести последнею новость');
         $bot->reply('/task_show - Отображение всех незавершенных заданий');
         $bot->reply('/task_add - Добавления задания в базу');
         $bot->reply('/task_finish {ID задания} - Завершить указаное задание');
@@ -32,6 +33,8 @@ class StartController extends Controller
             . '/task_remove {ID задания} - Удалить указаное задание' . PHP_EOL
             . '=== Команды кинобота ===' . PHP_EOL
             . '/cinema_show - Отобразить расписание сеансов ТРК Галактика' . PHP_EOL
+            . '=== Разное ===' . PHP_EOL
+            . '/news - Вывести последнею новость' . PHP_EOL
         );
     }
 }
