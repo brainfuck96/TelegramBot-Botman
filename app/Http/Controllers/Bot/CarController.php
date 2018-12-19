@@ -9,7 +9,7 @@ class CarController extends Controller
 {
     public function show($bot)
     {   
-        $bot->ask('Введите номер автомобиля на украинском языке (Пример: BI0020AE)', function($answer, $conversation) {
+        $bot->ask('Введите номер автомобиля на английском языке (Пример: BI0020AE)', function($answer, $conversation) {
             $apiKey = env('OPENDATA_API_KEY');
 
             $requestCarId = file_get_contents("https://opendatabot.com/api/v2/transport?apiKey=$apiKey&limit=1&number=$answer");
