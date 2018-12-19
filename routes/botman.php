@@ -11,11 +11,10 @@ $botman->group(['driver' => ['Web']], function($bot) {
     $bot->hears('/start', 'App\Http\Controllers\Bot\StartController@web');
 });
 
-$botman->group(['prefix' => 'test_'], function($bot) {
-    $bot->hears('1', function($bot) {
-        $bot->reply('Prefix response');
-    });
-});
+$botman->hears(
+    '/car',
+    'App\Http\Controllers\Bot\CarController@show'
+);
 
 $botman->hears(
     '/task_show',
