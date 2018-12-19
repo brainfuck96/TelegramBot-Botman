@@ -17,6 +17,11 @@ $botman->hears(
 );
 
 $botman->hears(
+    '/aliment',
+    'App\Http\Controllers\Bot\AlimentController@show'
+);
+
+$botman->hears(
     '/task_show',
     'App\Http\Controllers\Bot\TaskController@show'
 );

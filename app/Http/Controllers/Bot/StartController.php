@@ -11,6 +11,7 @@ class StartController extends Controller
     {
         $bot->reply('Список доступных команд:');
         $bot->reply('/car - Пробить автомобиль по номеру, база МВС с 2013 года');
+        $bot->reply('/alimetn - Проверка человека в базе неплательщиков алиментов');
         $bot->reply('/task_show - Отображение всех незавершенных заданий');
         $bot->reply('/task_add - Добавления задания в базу');
         $bot->reply('/task_finish {ID задания} - Завершить указаное задание');
@@ -21,7 +22,9 @@ class StartController extends Controller
     public function telegram($bot)
     {
         $bot->reply('Список доступных команд:' . PHP_EOL
+            . '=== Парсинг информация с открытых источников data.gov.ua ===' . PHP_EOL
             . '/car - Пробить автомобиль по номеру, база МВС с 2013 года' . PHP_EOL
+            . '/alimetn - Проверка человека в базе неплательщиков алиментов' . PHP_EOL
             . '=== Команды менеджера задач ===' . PHP_EOL
             . '/task_show - Отображение всех незавершенных заданий' . PHP_EOL
             . '/task_add - Добавления задания в базу' . PHP_EOL
