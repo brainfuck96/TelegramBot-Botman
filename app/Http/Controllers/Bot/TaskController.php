@@ -10,9 +10,9 @@ class TaskController extends Controller
 {
     public function show($bot)
     {
-        $user_id = $bot->getMessage()->getSender();
+        $chat_id = $bot->getMessage()->getSender();
         $tasks = Task::where('completed', false)
-            ->where('user_id', $user_id)
+            ->where('chat_id', $chat_id)
             ->get();
 
         if (count($tasks) > 0) {
@@ -28,9 +28,9 @@ class TaskController extends Controller
     public function add($bot)
     {   
         $bot->ask('Какое задание Вы хотите добавить?', function($answer, $conversation) {
-            $user_id = $conversation->getBot()->getMessage()->getSender();
+            $chat_id = $conversation->getBot()->getMessage()->getSender();
             Task::create([
-                 'user_id' => $user_id,
+                 'chat_id' => $chat_id,
                  'task' => $answer
              ]);
             $conversation->say('Ваше задание успешно добавленно');
@@ -39,9 +39,9 @@ class TaskController extends Controller
 
     public function finish($bot, $taskId)
     {
-        $user_id = $bot->getMessage()->getSender();
+        $chat_id = $bot->getMessage()->getSender();
 
-        $task = Task::where('user_id', $user_id)
+        $task = Task::where('chat_id', $chat_id)
             ->where('id', $taskId)
             ->first();
 
@@ -56,9 +56,9 @@ class TaskController extends Controller
 
     public function remove($bot, $taskId)
     {
-        $user_id = $bot->getMessage()->getSender();
+        $chat_id = $bot->getMessage()->getSender();
 
-        $task = Task::where('user_id', $user_id)
+        $task = Task::where('chat_id', $chat_id)
             ->where('id', $taskId)
             ->first();
 
