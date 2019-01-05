@@ -9,6 +9,7 @@ class StartController extends Controller
 {
     public function web($bot)
     {
+        $chat_id = $bot->getMessage()->getSender();
         $bot->reply('Список доступных команд:');
         $bot->reply('/car - Пробить автомобиль по номеру, база МВС с 2013 года');
         $bot->reply('/alimetn - Проверка человека в базе неплательщиков алиментов');
@@ -18,10 +19,12 @@ class StartController extends Controller
         $bot->reply('/task_finish {ID задания} - Завершить указаное задание');
         $bot->reply('/task_remove {ID задания} - Удалить указаное задание');
         $bot->reply('/cinema_show - Отобразить расписание сеансов ТРК Галактика');
+        $bot->reply('Ваш chat_id - ' . $chat_id);
     }
 
     public function telegram($bot)
     {
+        $chat_id = $bot->getMessage()->getSender();
         $bot->reply('Список доступных команд:' . PHP_EOL
             . '=== Парсинг информация с открытых источников data.gov.ua ===' . PHP_EOL
             . '/car - Пробить автомобиль по номеру, база МВС с 2013 года' . PHP_EOL
@@ -35,6 +38,7 @@ class StartController extends Controller
             . '/cinema_show - Отобразить расписание сеансов ТРК Галактика' . PHP_EOL
             . '=== Разное ===' . PHP_EOL
             . '/news - Вывести последнею новость' . PHP_EOL
+            . 'Ваш chat_id - ' . $chat_id . PHP_EOL
         );
     }
 }
